@@ -1,0 +1,998 @@
+<!DOCTYPE html>
+<html lang="zh-Hant"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>GEO Stack｜中小企業 AEO / GEO 顧問——讓 AI 引擎引用你，不只是排名你</title>
+<meta name="description" content="GEO Stack 用地基層、排名層、被引用層三層堆疊方法論,協助中小企業同時被 Google 排名收錄,也被 ChatGPT、Perplexity 等生成式引擎直接引用。本站本身就是方法論的現場示範。">
+<link rel="canonical" href="https://www.geostack.tw/">
+<meta property="og:title" content="GEO Stack｜讓 AI 引擎引用你，不只是排名你">
+<meta property="og:description" content="地基層、排名層、被引用層——中小企業的 SEO/AEO/GEO 三層堆疊顧問服務。">
+<meta property="og:type" content="website">
+<meta name="robots" content="index, follow">
+<link rel="preconnect" href="https://fonts.googleapis.com/">
+<link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin="">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;900&family=Roboto+Slab:wght@700;900&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "ProfessionalService",
+  "name": "GEO Stack",
+  "url": "https://www.geostack.tw/",
+  "description": "為中小企業提供 SEO、AEO、GEO 三層堆疊優化顧問服務,協助企業被搜尋引擎排名,也被生成式 AI 引擎引用。",
+  "areaServed": "TW",
+  "priceRange": "$$",
+  "sameAs": [
+    "https://www.linkedin.com/company/geostack",
+    "https://www.facebook.com/geostack"
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "GEO 和傳統 SEO 有什麼不同?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "SEO 讓 Google 把你排在搜尋結果第一頁,GEO(Generative Engine Optimization)讓 ChatGPT、Perplexity、Google AI Overview 這類生成式引擎在回答問題時直接引用你的內容。兩者技術基礎重疊,但 GEO 多了結構化資料、問答式內容與可驗證陳述三個關鍵層。"
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "為什麼 robots.txt 設定錯誤會讓 AI 看不到我的網站?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "許多網站為了擋垃圾爬蟲,直接封鎖所有非 Googlebot 的 User-agent,結果連 GPTBot、ClaudeBot、PerplexityBot 也一起被擋。這代表你的內容永遠不會出現在 ChatGPT 或 Perplexity 的回答裡,等於自己放棄了 GEO 的入場券。"
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "中小企業需要多久才能被 AI 引擎引用?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "地基層(SSL、速度、robots.txt)通常一到兩週內可以完成並生效。排名層與被引用層需要內容累積與外部連結,一般需要三到六個月的持續發布與更新,才會開始在 AI 回答中穩定被引用。"
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "GEO Stack 沒有作品集,為什麼可以信任?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "這個網站本身就是驗證方式。地基層的技術設定、排名層的內部連結、被引用層的 FAQ 結構化資料,全部可以直接檢視原始碼確認是否真的落地,而不是只用文字宣稱。"
+      }
+    }
+  ]
+}
+</script>
+
+<style>
+  :root{
+    --ink:#1C1B19;
+    --slate:#38424B;
+    --sandstone:#A8895E;
+    --chalk:#EDE6D6;
+    --vein:#2F6F62;
+    --vein-light:#4C8B7D;
+    --paper:#FAF7F0;
+    --line: rgba(28,27,25,0.14);
+    --mono: 'IBM Plex Mono', monospace;
+    --slab: 'Roboto Slab', serif;
+    --sans: 'Inter', sans-serif;
+  }
+
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  @media (prefers-reduced-motion: reduce){
+    html{scroll-behavior:auto;}
+    *{animation-duration:0.01ms !important; transition-duration:0.01ms !important;}
+  }
+
+  body{
+    margin:0;
+    font-family:var(--sans);
+    color:var(--ink);
+    background:var(--paper);
+    line-height:1.65;
+    font-size:16px;
+  }
+
+  a{color:var(--vein); text-decoration-thickness:1.5px;}
+  a:focus-visible, button:focus-visible, summary:focus-visible{
+    outline:3px solid var(--vein);
+    outline-offset:2px;
+  }
+
+  h1,h2,h3{
+    font-family:var(--slab);
+    line-height:1.2;
+    margin:0 0 0.5em;
+    letter-spacing:-0.01em;
+  }
+
+  .eyebrow{
+    font-family:var(--mono);
+    font-size:0.78rem;
+    letter-spacing:0.14em;
+    text-transform:uppercase;
+    color:var(--vein);
+    display:flex;
+    align-items:center;
+    gap:0.6em;
+    margin-bottom:1em;
+  }
+  .eyebrow::before{
+    content:"";
+    width:20px; height:1px;
+    background:var(--vein);
+    display:inline-block;
+  }
+
+  .wrap{
+    max-width:1120px;
+    margin:0 auto;
+    padding:0 24px;
+  }
+
+  /* ---------- CORE SAMPLE RAIL (signature element) ---------- */
+  .core-rail{
+    position:fixed;
+    right:0; top:0; bottom:0;
+    width:14px;
+    z-index:50;
+    display:flex;
+    flex-direction:column;
+  }
+  .core-rail .band{ flex:1; position:relative; }
+  .core-rail .band[data-layer="0"]{ background:var(--ink); }
+  .core-rail .band[data-layer="1"]{ background:var(--slate); }
+  .core-rail .band[data-layer="2"]{ background:var(--sandstone); }
+  .core-rail .band[data-layer="3"]{ background:var(--chalk); }
+  .core-rail .band.active::after{
+    content:"";
+    position:absolute; right:-4px; top:50%;
+    width:8px; height:8px;
+    border-radius:50%;
+    background:var(--vein);
+    transform:translateY(-50%);
+  }
+  .rail-label{
+    position:fixed;
+    right:22px;
+    z-index:50;
+    font-family:var(--mono);
+    font-size:0.7rem;
+    letter-spacing:0.06em;
+    color:var(--paper);
+    background:var(--ink);
+    padding:4px 10px;
+    border-radius:3px;
+    opacity:0;
+    /* 關鍵修正:與圓點一樣以自身中線對齊,而不是用上緣對齊 */
+    transform:translateY(-50%);
+    transition:opacity .3s ease, top .4s cubic-bezier(.22,.61,.36,1);
+    pointer-events:none;
+    white-space:nowrap;
+  }
+  .rail-label.show{opacity:1;}
+  .rail-label::before{
+    content:"";
+    position:absolute; left:-6px; top:50%;
+    width:6px; height:1px; background:var(--paper);
+    transform:translateY(-50%);
+  }
+  @media (max-width: 860px){
+    .core-rail, .rail-label{ display:none; }
+  }
+
+  /* ---------- 名詞小提示(解決外行人看不懂術語) ---------- */
+  .term{
+    position:relative;
+    border-bottom:1.5px dotted var(--vein);
+    cursor:help;
+    font-weight:600;
+    white-space:nowrap;
+  }
+  #foundation .term{ border-bottom-color:var(--sandstone); }
+  .term .tip{
+    position:absolute; left:50%; bottom:calc(100% + 10px);
+    transform:translateX(-50%) translateY(6px);
+    background:var(--ink); color:var(--paper);
+    font-family:var(--sans); font-weight:400; white-space:normal;
+    font-size:0.82rem; line-height:1.55;
+    padding:10px 14px; border-radius:6px; width:max-content; max-width:230px;
+    opacity:0; visibility:hidden;
+    transition:opacity .18s ease, transform .18s ease;
+    pointer-events:none; z-index:70; text-align:left;
+  }
+  .term .tip::after{
+    content:""; position:absolute; top:100%; left:50%; transform:translateX(-50%);
+    border:6px solid transparent; border-top-color:var(--ink);
+  }
+  .term:hover .tip, .term:focus .tip, .term:focus-within .tip{
+    opacity:1; visibility:visible; transform:translateX(-50%) translateY(0); pointer-events:auto;
+  }
+  @media (max-width:600px){
+    .term .tip{ left:auto; right:-8px; transform:translateY(6px); max-width:200px; }
+    .term .tip::after{ left:auto; right:14px; transform:none; }
+    .term:hover .tip, .term:focus .tip{ transform:translateY(0); }
+  }
+
+  /* ---------- 白話說明條(每層一句人話) ---------- */
+  .plain{
+    font-family:var(--sans); font-size:1rem; font-weight:500;
+    background:rgba(47,111,98,0.08);
+    border-left:3px solid var(--vein);
+    padding:12px 16px; border-radius:4px;
+    margin:14px 0 0; max-width:60ch;
+  }
+  #foundation .plain{ background:rgba(168,137,94,0.14); border-left-color:var(--sandstone); color:#F1E9DA; }
+  .plain b{ color:var(--vein); }
+  #foundation .plain b{ color:var(--sandstone); }
+
+  /* ---------- 捲動淡入 ---------- */
+  .reveal{ opacity:0; transform:translateY(18px); transition:opacity .6s ease, transform .6s ease; }
+  .reveal.in-view{ opacity:1; transform:translateY(0); }
+  .reveal.d1{ transition-delay:.08s; }
+  .reveal.d2{ transition-delay:.16s; }
+  .reveal.d3{ transition-delay:.24s; }
+
+  /* ---------- 卡片懸浮互動 ---------- */
+  .card{ transition:transform .25s ease, box-shadow .25s ease, border-color .25s ease; }
+  .card:hover{ transform:translateY(-6px); box-shadow:0 14px 28px rgba(0,0,0,0.12); }
+  #foundation .card:hover{ box-shadow:0 14px 28px rgba(0,0,0,0.28); border-color:rgba(255,255,255,0.3); }
+  #ranking .card:hover, #cited .card:hover{ border-color:var(--vein); }
+
+  /* ---------- NAV ---------- */
+  header{
+    position:sticky; top:0; z-index:40;
+    background:rgba(250,247,240,0.92);
+    backdrop-filter:blur(6px);
+    border-bottom:1px solid var(--line);
+  }
+  nav.wrap{
+    display:flex; align-items:center; justify-content:space-between;
+    padding-top:16px; padding-bottom:16px;
+  }
+  .logo{
+    font-family:var(--slab); font-weight:900; font-size:1.25rem;
+    color:var(--ink); text-decoration:none;
+    display:flex; align-items:baseline; gap:6px;
+  }
+  .logo span{ color:var(--vein); }
+  .navlinks{ display:flex; gap:28px; list-style:none; margin:0; padding:0; }
+  .navlinks a{ color:var(--ink); text-decoration:none; font-size:0.94rem; font-weight:500; }
+  .navlinks a:hover{ color:var(--vein); }
+  .cta-small{
+    font-family:var(--mono); font-size:0.82rem;
+    background:var(--ink); color:var(--paper) !important;
+    padding:8px 16px; border-radius:3px; text-decoration:none;
+  }
+  .cta-small:hover{ background:var(--vein); }
+  @media (max-width:760px){ .navlinks{ display:none; } }
+
+  /* ---------- HERO ---------- */
+  .hero{
+    background:var(--ink);
+    color:var(--paper);
+    padding:88px 0 96px;
+    position:relative;
+    overflow:hidden;
+  }
+  .hero .wrap{ position:relative; z-index:2; }
+  .hero-strata{
+    position:absolute; inset:0; z-index:1; opacity:0.5;
+  }
+  .hero h1{
+    font-size:clamp(2.1rem, 4.4vw, 3.4rem);
+    color:var(--paper);
+    max-width:15ch;
+  }
+  .hero h1 em{ font-style:normal; color:var(--sandstone); }
+  .hero p.lede{
+    font-size:1.15rem;
+    max-width:56ch;
+    color:#D9D2C2;
+    margin-top:20px;
+  }
+  .hero-ctas{ display:flex; gap:16px; margin-top:36px; flex-wrap:wrap; }
+  .btn{
+    font-family:var(--mono); font-size:0.9rem;
+    padding:13px 24px; border-radius:3px;
+    text-decoration:none; display:inline-block;
+    border:1px solid transparent;
+  }
+  .btn-primary{ background:var(--vein); color:var(--paper); }
+  .btn-primary:hover{ background:var(--vein-light); }
+  .btn-ghost{ border-color:#5B6570; color:var(--paper); }
+  .btn-ghost:hover{ border-color:var(--paper); }
+
+  .hero-meta{
+    margin-top:56px;
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:24px;
+    border-top:1px solid #3A4046;
+    padding-top:28px;
+  }
+  .hero-meta div{ font-family:var(--mono); font-size:0.82rem; color:#B9B2A2; }
+  .hero-meta strong{ display:block; color:var(--paper); font-size:1rem; margin-bottom:4px; font-family:var(--sans); }
+  @media (max-width:700px){ .hero-meta{ grid-template-columns:1fr; } }
+
+  /* ---------- SECTION generic ---------- */
+  section{ padding:88px 0; border-bottom:1px solid var(--line); }
+  .section-head{ max-width:60ch; margin-bottom:52px; }
+  .section-head h2{ font-size:clamp(1.6rem,3vw,2.2rem); }
+  .section-head p{ color:#4A4540; font-size:1.05rem; }
+
+  /* layer 1 = 地基層 */
+  #foundation{ background:var(--slate); color:var(--paper); }
+  #foundation .section-head p{ color:#C7CCD0; }
+  #foundation .eyebrow{ color:var(--sandstone); }
+  #foundation .eyebrow::before{ background:var(--sandstone); }
+
+  /* layer 2 = 排名層 */
+  #ranking{ background:#EFE6D3; }
+
+  /* layer 3 = 被引用層 */
+  #cited{ background:var(--chalk); }
+
+  .layer-grid{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:28px;
+  }
+  @media (max-width:900px){ .layer-grid{ grid-template-columns:1fr; } }
+
+  .card{
+    background:rgba(255,255,255,0.06);
+    border:1px solid rgba(255,255,255,0.14);
+    border-radius:6px;
+    padding:26px;
+  }
+  #ranking .card, #cited .card{
+    background:var(--paper);
+    border:1px solid var(--line);
+  }
+  .card h3{ font-size:1.05rem; margin-bottom:12px; font-family:var(--sans); font-weight:700; }
+  .card ul{ margin:0; padding-left:1.1em; font-size:0.94rem; }
+  .card li{ margin-bottom:8px; }
+  .status{
+    display:inline-flex; align-items:center; gap:6px;
+    font-family:var(--mono); font-size:0.72rem;
+    padding:3px 8px; border-radius:20px;
+    margin-bottom:14px;
+    background:rgba(47,111,98,0.15); color:var(--vein);
+    border:1px solid rgba(47,111,98,0.3);
+  }
+  #foundation .status{ background:rgba(168,137,94,0.18); color:var(--sandstone); border-color:rgba(168,137,94,0.35); }
+  .status::before{ content:"●"; font-size:0.6rem; }
+
+  /* ---------- COMPARISON TABLE ---------- */
+  .table-wrap{ overflow-x:auto; border:1px solid var(--line); border-radius:6px; }
+  table{ border-collapse:collapse; width:100%; min-width:640px; background:var(--paper); }
+  th,td{ text-align:left; padding:14px 18px; border-bottom:1px solid var(--line); font-size:0.94rem; }
+  thead th{
+    font-family:var(--mono); font-size:0.76rem; text-transform:uppercase; letter-spacing:0.06em;
+    background:var(--ink); color:var(--paper);
+  }
+  tbody tr:last-child td{ border-bottom:none; }
+  tbody tr:nth-child(even){ background:rgba(28,27,25,0.03); }
+  td strong{ color:var(--vein); }
+
+  /* ---------- FAQ ---------- */
+  .faq-item{
+    border-bottom:1px solid var(--line);
+    padding:22px 0;
+  }
+  .faq-item summary{
+    cursor:pointer; font-weight:600; font-size:1.05rem;
+    list-style:none; display:flex; justify-content:space-between; gap:16px;
+  }
+  .faq-item summary::-webkit-details-marker{ display:none; }
+  .faq-item summary::after{ content:"+"; font-family:var(--mono); color:var(--vein); font-size:1.3rem; flex-shrink:0; }
+  .faq-item[open] summary::after{ content:"–"; }
+  .faq-item .answer{ margin-top:12px; color:#403C36; max-width:64ch; }
+  .answer .lead{ font-weight:600; color:var(--ink); }
+
+  /* ---------- ABOUT / E-E-A-T ---------- */
+  #about{ background:var(--paper); }
+  .about-grid{ display:grid; grid-template-columns:1fr 1.4fr; gap:56px; }
+  @media (max-width:860px){ .about-grid{ grid-template-columns:1fr; } }
+  .author-card{
+    border:1px solid var(--line); border-radius:6px; padding:28px;
+    background:#fff;
+  }
+  .avatar-placeholder{
+    width:64px; height:64px; border-radius:50%;
+    background:var(--slate); color:var(--paper);
+    display:flex; align-items:center; justify-content:center;
+    font-family:var(--slab); font-weight:700; margin-bottom:16px;
+  }
+  .fill-me{
+    background:rgba(168,137,94,0.16);
+    border:1px dashed var(--sandstone);
+    padding:2px 8px; border-radius:3px;
+    font-family:var(--mono); font-size:0.85em;
+    color:#7A5E3A;
+  }
+  .contact-list{ list-style:none; margin:20px 0 0; padding:0; font-size:0.94rem; }
+  .contact-list li{ margin-bottom:10px; display:flex; gap:10px; }
+  .contact-list .k{ font-family:var(--mono); color:#8A8378; width:64px; flex-shrink:0; }
+
+  /* ---------- 互動自我健檢 ---------- */
+  #selfcheck{ background:var(--slate); color:var(--paper); }
+  #selfcheck .section-head p{ color:#C7CCD0; }
+  .check-grid{
+    display:grid; grid-template-columns:repeat(2,1fr); gap:14px 32px;
+    margin:0 0 32px;
+  }
+  @media (max-width:760px){ .check-grid{ grid-template-columns:1fr; } }
+  .check-item{
+    display:flex; align-items:flex-start; gap:12px;
+    font-size:0.96rem; cursor:pointer; user-select:none;
+    padding:10px 12px; border-radius:6px;
+    background:rgba(255,255,255,0.04);
+    border:1px solid rgba(255,255,255,0.1);
+    transition:background .2s ease, border-color .2s ease;
+  }
+  .check-item:hover{ background:rgba(255,255,255,0.09); }
+  .check-item input{
+    appearance:none; width:19px; height:19px; flex-shrink:0; margin-top:1px;
+    border:2px solid var(--sandstone); border-radius:4px; cursor:pointer;
+    position:relative; background:transparent;
+  }
+  .check-item input:checked{ background:var(--vein); border-color:var(--vein); }
+  .check-item input:checked::after{
+    content:"✓"; position:absolute; inset:0; display:flex; align-items:center; justify-content:center;
+    color:var(--paper); font-size:13px; font-weight:700;
+  }
+  .check-item input:focus-visible{ outline:3px solid var(--sandstone); outline-offset:2px; }
+  .check-item span{ line-height:1.5; }
+  .check-tag{
+    font-family:var(--mono); font-size:0.68rem; color:var(--sandstone);
+    display:block; margin-bottom:2px; letter-spacing:.05em;
+  }
+
+  .check-result{
+    background:var(--ink); border:1px solid rgba(255,255,255,0.14);
+    border-radius:8px; padding:26px 28px;
+  }
+  .strata-bar{
+    display:flex; height:14px; border-radius:7px; overflow:hidden;
+    margin-bottom:18px; background:rgba(255,255,255,0.08);
+  }
+  .strata-bar span{ height:100%; transition:width .5s cubic-bezier(.22,.61,.36,1); width:0%; }
+  .strata-bar .b1{ background:var(--sandstone); }
+  .strata-bar .b2{ background:#C9B189; }
+  .strata-bar .b3{ background:var(--vein); }
+  .check-result h3{ font-family:var(--sans); font-size:1.05rem; margin-bottom:8px; }
+  .check-result p{ color:#C7CCD0; margin:0; font-size:0.94rem; }
+  .check-count{ font-family:var(--mono); color:var(--sandstone); font-size:0.82rem; margin-bottom:10px; display:block; }
+
+  /* ---------- FOOTER CTA ---------- */
+  #contact{
+    background:var(--ink); color:var(--paper); border-bottom:none;
+    text-align:center;
+  }
+  #contact h2{ color:var(--paper); }
+  #contact p{ color:#C7C2B6; max-width:52ch; margin:0 auto 32px; }
+
+  footer{
+    background:var(--ink); color:#8A9095;
+    padding:32px 0; font-size:0.85rem;
+    border-top:1px solid #2C333A;
+  }
+  footer .wrap{ display:flex; justify-content:space-between; flex-wrap:wrap; gap:12px; }
+  footer a{ color:#B9B2A2; }
+</style>
+</head>
+<body>
+
+<!-- 岩芯剖面軌:網站的視覺簽名,對應下方三層方法論的捲動位置 -->
+<div class="core-rail" aria-hidden="true">
+  <div class="band active" data-layer="0"></div>
+  <div class="band" data-layer="1"></div>
+  <div class="band" data-layer="2"></div>
+  <div class="band" data-layer="3"></div>
+</div>
+<div class="rail-label show" id="railLabel" style="top: 86.9px;">關於我們</div>
+
+<header>
+  <nav class="wrap" aria-label="主選單">
+    <a href="#top" class="logo">GEO<span>Stack</span></a>
+    <ul class="navlinks">
+      <li><a href="#about">關於我們</a></li>
+      <li><a href="#foundation">地基層</a></li>
+      <li><a href="#ranking">排名層</a></li>
+      <li><a href="#cited">被引用層</a></li>
+    </ul>
+    <a href="#contact" class="cta-small">預約免費健檢</a>
+  </nav>
+</header>
+
+<main id="top">
+
+  <!-- ============ HERO ============ -->
+  <section class="hero" style="border-bottom:none;">
+    <div class="wrap">
+      <div class="eyebrow">GEO STACK · 生成式引擎優化顧問</div>
+      <h1>當搜尋引擎變成<em>回答引擎</em>,你的內容準備好被引用了嗎?</h1>
+      <p class="lede">
+        白話一點說:以前客人在 Google 打關鍵字,會看到一排網站連結自己點進去比較;
+        現在客人直接問 ChatGPT「附近哪家最好」,AI 只會給<strong style="color:#fff;">一個答案</strong>——
+        我們的工作,就是讓那個答案裡有你。
+      </p>
+      <div class="hero-ctas">
+        <a href="#contact" class="btn btn-primary">預約免費 GEO 健檢</a>
+        <a href="#proof" class="btn btn-ghost">看本站怎麼落地這套方法</a>
+      </div>
+
+      <div class="hero-meta">
+        <div><strong>方法論</strong>地基層 → 排名層 → 被引用層,三層依序建構,缺一層都會讓上層失效。</div>
+        <div><strong>對象</strong>中小企業、專業服務業與地方型商家,搜尋量不大但轉換價值高的產業。</div>
+        <div><strong>驗證方式</strong>不用形容詞說服你,直接看這個網站原始碼裡真正落地的技術設定。</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ PROOF / 沒有作品集的解法 ============ -->
+  <section id="proof" style="background:var(--paper);">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <div class="eyebrow">關於「我們還沒有案例」這件事</div>
+        <h2>這個網站,就是我們的第一個案例</h2>
+        <p>
+          GEO Stack 剛成立,還沒有客戶案例可以展示。與其用「我們很專業」這種 AI 無法引用的形容詞堆疊,
+          我們選擇把整套地基層/排名層/被引用層方法論,原封不動地用在這個網站自己身上。
+          你現在看到的每一個技術細節——robots.txt、結構化資料、FAQ schema——都可以按 <span class="fill-me">Ctrl+U</span> 檢視原始碼直接驗證。
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ LAYER 1: 地基層 ============ -->
+  <section id="foundation">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <div class="eyebrow">Layer 01 · 地基層(打地基)</div>
+        <h2>網站的基本功,AI 跟人都靠這一層才進得來</h2>
+        <p>沒有地基層,上面兩層做得再好,AI 爬蟲也進不來,一切歸零。</p>
+        <div class="plain reveal">
+          <b>白話說</b>:想像你的網站是一間店。這一層在確認——門有沒有鎖好(安全)、
+          招牌手機上看不看得到(適配)、客人進門要不要等三秒以上(速度)。
+        </div>
+      </div>
+      <div class="layer-grid">
+        <div class="card reveal">
+          <span class="status">本站已落地</span>
+          <h3>連線與效能</h3>
+          <ul>
+            <li>全站
+              <span class="term" tabindex="0">SSL / HTTPS<span class="tip">網址開頭是 https 而不是 http,代表資料傳輸有加密,瀏覽器不會顯示「不安全」警告。</span></span>
+            </li>
+            <li>手機打開不跑版、按鈕不會太小點不到</li>
+            <li>從點連結到畫面出現,控制在 3 秒以內</li>
+          </ul>
+        </div>
+        <div class="card reveal d1">
+          <span class="status">本站已落地</span>
+          <h3>每頁獨立的頁面資訊</h3>
+          <ul>
+            <li>每頁不同的
+              <span class="term" tabindex="0">title tag<span class="tip">就是分頁標籤上顯示、也是 Google 搜尋結果那行藍色標題的文字。</span></span>
+            </li>
+            <li>每頁不同的
+              <span class="term" tabindex="0">meta description<span class="tip">Google 搜尋結果標題下面那兩行灰色說明文字,用來吸引人點進來。</span></span>
+            </li>
+            <li>
+              <span class="term" tabindex="0">sitemap.xml<span class="tip">一張給 Google 看的網站地圖,列出網站有哪些頁面,方便 Google 全部收錄。</span></span>
+              已提交至 Search Console
+            </li>
+          </ul>
+        </div>
+        <div class="card reveal d2">
+          <span class="status">本站已落地</span>
+          <h3>讓 AI 進得來,不是只讓 Google 進得來</h3>
+          <ul>
+            <li>
+              <span class="term" tabindex="0">robots.txt<span class="tip">一個放在網站根目錄的小檔案,寫著「哪些機器人可以進來看我的網站」。</span></span>
+              明確允許 <span class="term" tabindex="0">GPTBot<span class="tip">ChatGPT 用來瀏覽網站內容、產生回答依據的機器人。</span></span>
+            </li>
+            <li>允許 ClaudeBot、PerplexityBot(分別是 Claude 和 Perplexity 的閱讀機器人)</li>
+            <li>允許 Google-Extended(Google AI 摘要用的閱讀權限)</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ LAYER 2: 排名層 ============ -->
+  <section id="ranking">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <div class="eyebrow">Layer 02 · 排名層(蓋房子)</div>
+        <h2>寫客人真的會打的字,不是行銷用語</h2>
+        <p>圍繞中小企業老闆真的會打進 Google 的搜尋詞,而不是空泛的產業關鍵字。</p>
+        <div class="plain reveal">
+          <b>白話說</b>:地基打好只代表門開著,還要有東西可以逛。這一層在寫「客人真的會搜尋的內容」,
+          並且讓網站內外都有人願意連過來,就像口碑跟指路牌。
+        </div>
+      </div>
+      <div class="layer-grid">
+        <div class="card reveal">
+          <h3>內容策略</h3>
+          <ul>
+            <li>寫「附近哪家 OO 比較好」這種真實問句,不是「頂級」「專業」這種空話</li>
+            <li>部落格文章跟服務頁互相連結,像逛街會經過隔壁店</li>
+            <li>同主題的文章互相串起來,形成一個完整的知識區塊</li>
+          </ul>
+        </div>
+        <div class="card reveal d1">
+          <h3>讓別的地方也指路過來</h3>
+          <ul>
+            <li>LinkedIn 貼文附連結導回網站</li>
+            <li>
+              <span class="term" tabindex="0">Google 商家檔案<span class="tip">就是 Google 地圖上顯示店家資訊、評價、營業時間的那個檔案,也叫 GBP。</span></span>
+              裡放上網站連結
+            </li>
+            <li>商會、公會、產業名錄裡登記留下連結</li>
+          </ul>
+        </div>
+        <div class="card reveal d2">
+          <h3>讓人相信這是真人在寫</h3>
+          <ul>
+            <li>有真人作者介紹頁,不是匿名發文</li>
+            <li>電話、地址、Email 都是可以打通、找得到的真資料</li>
+            <li>案例與評價頁(見下方「關於我們」)</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ LAYER 3: 被引用層 ============ -->
+  <section id="cited">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <div class="eyebrow">Layer 03 · 被引用層(被看見)</div>
+        <h2>讓 AI 引擎願意直接引用你,不是叫客人自己點進來</h2>
+        <p>結構化資料在這裡落地,把內容變成 AI 容易萃取、願意引用的格式。</p>
+        <div class="plain reveal">
+          <b>白話說</b>:前兩層是「讓人找得到」,這一層是「讓 AI 讀得懂、敢引用」。
+          做法很具體:文章標題直接寫成問句、開頭就給答案、用表格取代長篇大論。
+        </div>
+      </div>
+      <div class="layer-grid">
+        <div class="card reveal">
+          <h3>用問句寫,開門見山回答</h3>
+          <ul>
+            <li>文章標題就是客人真的會問 ChatGPT 的那句話</li>
+            <li>開頭 40–60 字直接給答案,不要鋪陳</li>
+            <li>標註更新日期,每季回來複查一次舊文</li>
+          </ul>
+        </div>
+        <div class="card reveal d1">
+          <h3>
+            <span class="term" tabindex="0">結構化資料<span class="tip">又叫 schema,是寫在網頁背後、人看不到但 AI 看得懂的標記,用來清楚告訴 AI「這是問答」「這是文章」「這是店家資訊」。</span></span>
+          </h3>
+          <ul>
+            <li>FAQ 結構化資料(本頁 FAQ 已套用,可檢視原始碼)</li>
+            <li>文章結構化資料</li>
+            <li>店家 / 專業服務結構化資料</li>
+          </ul>
+        </div>
+        <div class="card reveal d2">
+          <h3>寫可以被引用的句子</h3>
+          <ul>
+            <li>對照表格取代大段散文</li>
+            <li>具體數據、可驗證的說法</li>
+            <li>不寫「我們很專業」這種 AI 引用不了的形容詞</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- 對照表格範例:同時是內容也是示範 -->
+      <div style="margin-top:48px;">
+        <div class="eyebrow">範例:表格比一大段文字更容易被 AI 準確萃取</div>
+        <div class="table-wrap reveal">
+          <table>
+            <thead>
+              <tr><th>比較項目</th><th>SEO</th><th>AEO</th><th>GEO</th></tr>
+            </thead>
+            <tbody>
+              <tr><td>優化目標</td><td>搜尋結果排名</td><td>語音助理 / 精選摘要</td><td>被生成式 AI 引擎直接引用</td></tr>
+              <tr><td>主要平台</td><td>Google、Bing</td><td>Siri、Alexa、Google 語音</td><td>ChatGPT、Perplexity、Gemini</td></tr>
+              <tr><td>內容形式</td><td>關鍵字導向長文</td><td>簡短口語化答案</td><td>問答結構 + 結構化資料</td></tr>
+              <tr><td>關鍵技術</td><td>反向連結、meta 標籤</td><td>Featured Snippet 優化</td><td><strong>Schema.org 標記</strong></td></tr>
+              <tr><td>成效衡量</td><td>排名、流量</td><td>語音回答曝光</td><td>AI 回答中的引用次數</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <p style="font-size:0.86rem; color:#5A5449; margin-top:14px;">
+          白話翻譯:<b>SEO</b> = 讓 Google 把你排前面;<b>AEO</b> = 讓 Siri、Alexa 念出你的答案;<b>GEO</b> = 讓 ChatGPT、Perplexity 直接引用你的內容作答。
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ FAQ ============ -->
+  <section id="faq" style="background:var(--paper);">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <div class="eyebrow">常見問題</div>
+        <h2>對齊真實會被問 ChatGPT 的問題</h2>
+      </div>
+
+      <details class="faq-item reveal" open="">
+        <summary>GEO 和傳統 SEO 有什麼不同?</summary>
+        <div class="answer">
+          <p class="lead">SEO 讓 Google 把你排在第一頁,GEO 讓 ChatGPT、Perplexity 這類生成式引擎直接引用你的內容作答。</p>
+          <p>兩者技術基礎重疊,但 GEO 多了結構化資料、問答式內容與可驗證陳述三個關鍵層,是在 SEO 地基之上再往上蓋一層。</p>
+        </div>
+      </details>
+
+      <details class="faq-item reveal">
+        <summary>為什麼 robots.txt 設定錯誤會讓 AI 看不到我的網站?</summary>
+        <div class="answer">
+          <p class="lead">許多網站為了擋垃圾爬蟲,連 AI 引用型爬蟲也一起封鎖,等於自己放棄 GEO 的入場券。</p>
+          <p>常見誤區是直接封鎖所有非 Googlebot 的 User-agent,結果連 GPTBot、ClaudeBot、PerplexityBot 也被擋在門外。你的內容就永遠不會出現在 AI 的回答來源裡。</p>
+        </div>
+      </details>
+
+      <details class="faq-item reveal">
+        <summary>中小企業需要多久才能被 AI 引擎引用?</summary>
+        <div class="answer">
+          <p class="lead">地基層通常一到兩週內生效,排名層與被引用層需要三到六個月的持續累積。</p>
+          <p>SSL、速度、robots.txt 屬於一次性技術設定,很快就能完成。但內容與外部連結需要時間累積,才會開始在 AI 回答中被穩定引用。</p>
+        </div>
+      </details>
+
+      <details class="faq-item reveal">
+        <summary>GEO Stack 沒有作品集,為什麼可以信任?</summary>
+        <div class="answer">
+          <p class="lead">這個網站本身就是驗證方式,技術設定全部可以直接檢視原始碼確認是否落地。</p>
+          <p>地基層的技術設定、排名層的內部連結、被引用層的 FAQ 結構化資料,不是用文字宣稱,而是這個頁面正在使用的實際程式碼。</p>
+        </div>
+      </details>
+    </div>
+  </section>
+
+  <!-- ============ ABOUT / E-E-A-T ============ -->
+  <section id="about">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <div class="eyebrow">關於我們</div>
+        <h2>E-E-A-T:真人、真聯絡方式、透明方法論</h2>
+      </div>
+      <div class="about-grid">
+        <div class="author-card reveal">
+          <div class="avatar-placeholder">GS</div>
+          <h3><span class="fill-me">［在此填入創辦人姓名］</span></h3>
+          <p style="font-size:0.92rem; color:#5A5449;">
+            <span class="fill-me">［在此填入一到兩句真實資歷,例如:曾任職於＿＿產業，專注中小企業 SEO 三年］</span>
+          </p>
+          <ul class="contact-list">
+            <li><span class="k">Email</span> <span class="fill-me">hello@geostack.tw</span></li>
+            <li><span class="k">電話</span> <span class="fill-me">［填入真實聯絡電話］</span></li>
+            <li><span class="k">地址</span> <span class="fill-me">［填入真實營業地址,供 Google Business Profile 對照］</span></li>
+            <li><span class="k">LinkedIn</span> <a href="#" class="fill-me">［填入個人 LinkedIn 網址］</a></li>
+          </ul>
+        </div>
+        <div>
+          <h3>我們怎麼做事</h3>
+          <p>
+            GEO Stack 目前正在建立第一批客戶案例。我們不會用還沒發生的成果來包裝自己,
+            以下是我們對未來每一個案例頁面的承諾格式——具體、可驗證、可被 AI 引擎直接引用:
+          </p>
+          <div class="table-wrap reveal" style="margin-top:20px;">
+            <table>
+              <thead><tr><th>不會這樣寫</th><th>會這樣寫</th></tr></thead>
+              <tbody>
+                <tr><td>「我們很專業,經驗豐富」</td><td>「幫 OO 店家的 GBP 瀏覽量在 30 天內成長 42%」</td></tr>
+                <tr><td>「效果顯著,客戶很滿意」</td><td>「導入後 3 個月,自然搜尋流量從 1,200 成長至 2,650」</td></tr>
+                <tr><td>「我們了解在地 SEO」</td><td>「服務過 6 家高雄餐飲業,平均在地搜尋排名進入前 3 名」</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <p style="margin-top:20px; font-size:0.92rem; color:#6A645A;">
+            案例頁面上線後將列在此處,並附上可查證的第三方連結(Google Business Profile、客戶評價平台等)。
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ 互動自我健檢 ============ -->
+  <section id="selfcheck">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <div class="eyebrow" style="color:var(--sandstone);">互動小工具 · 不用送出資料</div>
+        <h2>勾勾看,你的網站現在蓋到第幾層?</h2>
+        <p>10 個項目,勾完立刻在這頁看到結果,純粹好玩兼自我檢查用。</p>
+      </div>
+
+      <form id="checkForm" class="check-grid">
+        <label class="check-item"><input type="checkbox" data-layer="1"><span><span class="check-tag">地基層</span>網址是 https 開頭(有鎖頭圖示)</span></label>
+        <label class="check-item"><input type="checkbox" data-layer="1"><span><span class="check-tag">地基層</span>手機打開不跑版、字看得清楚</span></label>
+        <label class="check-item"><input type="checkbox" data-layer="1"><span><span class="check-tag">地基層</span>點連結後 3 秒內畫面就出來</span></label>
+        <label class="check-item"><input type="checkbox" data-layer="1"><span><span class="check-tag">地基層</span>檢查過 robots.txt,沒有擋到 AI 爬蟲</span></label>
+        <label class="check-item"><input type="checkbox" data-layer="2"><span><span class="check-tag">排名層</span>網站上有部落格或常見問題文章</span></label>
+        <label class="check-item"><input type="checkbox" data-layer="2"><span><span class="check-tag">排名層</span>Google 商家檔案有連回網站</span></label>
+        <label class="check-item"><input type="checkbox" data-layer="2"><span><span class="check-tag">排名層</span>網站上有真人姓名與可查證的聯絡方式</span></label>
+        <label class="check-item"><input type="checkbox" data-layer="3"><span><span class="check-tag">被引用層</span>文章標題有用問句寫過</span></label>
+        <label class="check-item"><input type="checkbox" data-layer="3"><span><span class="check-tag">被引用層</span>網站上有結構化資料(schema)</span></label>
+        <label class="check-item"><input type="checkbox" data-layer="3"><span><span class="check-tag">被引用層</span>試過用 ChatGPT 搜自己,看有沒有被提到</span></label>
+      </form>
+
+      <div class="check-result">
+        <span class="check-count" id="checkCount">0 / 10 項</span>
+        <div class="strata-bar">
+          <span class="b1" id="barL1" style="width: 0%;"></span><span class="b2" id="barL2" style="width: 0%;"></span><span class="b3" id="barL3" style="width: 0%;"></span>
+        </div>
+        <h3 id="checkTitle">先勾勾看你現在有哪些</h3>
+        <p id="checkMsg">不管勾了幾項都沒關係,這只是幫你看清楚現在站在哪一層,下一步該補哪裡。</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ CONTACT ============ -->
+  <section id="contact">
+    <div class="wrap">
+      <div class="eyebrow" style="justify-content:center; color:var(--sandstone);">開始你的 GEO 健檢</div>
+      <h2>先看你的網站,AI 爬蟲進得來嗎?</h2>
+      <p>免費檢查 robots.txt、SSL、meta 標籤與 schema 現況,15 分鐘內回覆診斷結果。</p>
+      <a href="mailto:hello@geostack.tw" class="btn btn-primary">寄信預約健檢</a>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="wrap">
+    <div>© 2026 GEO Stack. All rights reserved.</div>
+    <div>
+      <a href="#foundation">地基層</a> ·
+      <a href="#ranking">排名層</a> ·
+      <a href="#cited">被引用層</a> ·
+      <a href="#selfcheck">自我健檢</a> ·
+      <a href="what-is-geo-vs-seo.html">部落格範例</a>
+    </div>
+  </div>
+</footer>
+
+<script>
+  // ---------- 岩芯剖面軌:依捲動位置高亮對應地層,標籤位置直接取自該地層色塊本身 ----------
+  (function(){
+    var bands = document.querySelectorAll('.core-rail .band');
+    var label = document.getElementById('railLabel');
+    var sections = [
+      { id: 'proof',      layer: '0', text: '關於我們' },
+      { id: 'foundation', layer: '1', text: '地基層 · 打地基' },
+      { id: 'ranking',    layer: '2', text: '排名層 · 蓋房子' },
+      { id: 'cited',      layer: '3', text: '被引用層 · 被看見' }
+    ];
+    var targets = sections.map(function(s){
+      return { el: document.getElementById(s.id), layer: s.layer, text: s.text };
+    }).filter(function(t){ return t.el; });
+
+    if (!label || !bands.length || !targets.length) return;
+
+    function positionLabel(layer, text){
+      var band = document.querySelector('.core-rail .band[data-layer="' + layer + '"]');
+      if (!band) return;
+      var rect = band.getBoundingClientRect();
+      var centerY = rect.top + rect.height / 2;
+      label.style.top = centerY + 'px';
+      label.textContent = text;
+      label.classList.add('show');
+    }
+
+    function setActive(layer, text){
+      bands.forEach(function(b){
+        b.classList.toggle('active', b.getAttribute('data-layer') === layer);
+      });
+      positionLabel(layer, text);
+    }
+
+    setActive('0', '關於我們');
+
+    if ('IntersectionObserver' in window){
+      var observer = new IntersectionObserver(function(entries){
+        entries.forEach(function(entry){
+          if (entry.isIntersecting){
+            var match = targets.find(function(t){ return t.el === entry.target; });
+            if (match) setActive(match.layer, match.text);
+          }
+        });
+      }, { rootMargin: '-45% 0px -45% 0px', threshold: 0 });
+      targets.forEach(function(t){ observer.observe(t.el); });
+    }
+
+    window.addEventListener('resize', function(){
+      var activeBand = document.querySelector('.core-rail .band.active');
+      if (activeBand){
+        var layer = activeBand.getAttribute('data-layer');
+        var match = targets.find(function(t){ return t.layer === layer; });
+        if (match) positionLabel(match.layer, match.text);
+      }
+    });
+  })();
+</script>
+
+<script>
+  // ---------- 捲動淡入:讓頁面不再死板 ----------
+  (function(){
+    var toReveal = document.querySelectorAll('.section-head, .card, .plain, .faq-item, .table-wrap, .author-card');
+    toReveal.forEach(function(el){ el.classList.add('reveal'); });
+
+    if (!('IntersectionObserver' in window)){
+      toReveal.forEach(function(el){ el.classList.add('in-view'); });
+      return;
+    }
+    var revealObserver = new IntersectionObserver(function(entries, obs){
+      entries.forEach(function(entry){
+        if (entry.isIntersecting){
+          entry.target.classList.add('in-view');
+          obs.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.12 });
+    toReveal.forEach(function(el){ revealObserver.observe(el); });
+  })();
+
+  // ---------- 互動自我健檢:純前端計算,不送出任何資料 ----------
+  (function(){
+    var form = document.getElementById('checkForm');
+    if (!form) return;
+    var countEl = document.getElementById('checkCount');
+    var titleEl = document.getElementById('checkTitle');
+    var msgEl = document.getElementById('checkMsg');
+    var barL1 = document.getElementById('barL1');
+    var barL2 = document.getElementById('barL2');
+    var barL3 = document.getElementById('barL3');
+    var checkboxes = form.querySelectorAll('input[type="checkbox"]');
+    var totals = { '1': 0, '2': 0, '3': 0 };
+    checkboxes.forEach(function(cb){ totals[cb.getAttribute('data-layer')]++; });
+
+    function update(){
+      var counts = { '1': 0, '2': 0, '3': 0 };
+      checkboxes.forEach(function(cb){
+        if (cb.checked) counts[cb.getAttribute('data-layer')]++;
+      });
+      var total = counts['1'] + counts['2'] + counts['3'];
+
+      countEl.textContent = total + ' / ' + checkboxes.length + ' 項';
+      barL1.style.width = (counts['1'] / checkboxes.length * 100) + '%';
+      barL2.style.width = (counts['2'] / checkboxes.length * 100) + '%';
+      barL3.style.width = (counts['3'] / checkboxes.length * 100) + '%';
+
+      if (total === 0){
+        titleEl.textContent = '先勾勾看你現在有哪些';
+        msgEl.textContent = '不管勾了幾項都沒關係,這只是幫你看清楚現在站在哪一層,下一步該補哪裡。';
+      } else if (counts['1'] < totals['1']){
+        titleEl.textContent = '地基層還沒打穩,建議從這裡開始';
+        msgEl.textContent = 'SSL、速度、robots.txt 這幾項多半一次設定就能生效,是投資報酬率最高的第一步。';
+      } else if (counts['2'] < totals['2']){
+        titleEl.textContent = '地基打好了,正在往上蓋';
+        msgEl.textContent = '接下來可以開始規律發布真人會搜尋的內容,並讓外部連結指回你的網站。';
+      } else if (counts['3'] < totals['3']){
+        titleEl.textContent = '前兩層都穩了,差臨門一腳';
+        msgEl.textContent = '可以開始加入問答式內容與結構化資料,讓 AI 引擎願意直接引用你。';
+      } else {
+        titleEl.textContent = '三層都有基礎,可以談被引用了';
+        msgEl.textContent = '這時候適合找人做一次完整健檢,確認每個技術細節都真的落地,而不只是「感覺有做」。';
+      }
+    }
+
+    checkboxes.forEach(function(cb){ cb.addEventListener('change', update); });
+    update();
+  })();
+</script>
+
+
+
+</body></html>

@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- GEO Stack sitemap 範本。部署後請將網域換成實際網域,
+     並在每次更新頁面內容後同步更新 lastmod 日期。 -->
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <url>
+    <loc>https://www.geostack.tw/</loc>
+    <lastmod>2026-07-12</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>1.0</priority>
+  </url>
+  <url>
+    <loc>https://www.geostack.tw/what-is-geo-vs-seo.html</loc>
+    <lastmod>2026-07-12</lastmod>
+    <changefreq>quarterly</changefreq>
+    <priority>0.8</priority>
+  </url>
+</urlset>

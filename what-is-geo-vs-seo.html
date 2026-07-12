@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="zh-Hant"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>什麼是 GEO?中小企業為什麼需要它?｜GEO Stack</title>
+<meta name="description" content="GEO(生成式引擎優化)讓 ChatGPT、Perplexity 等 AI 直接引用你的內容作答。本文用 40 秒說明 GEO 與 SEO 的差異,以及中小企業該從哪裡開始。">
+<link rel="canonical" href="https://www.geostack.tw/what-is-geo-vs-seo.html">
+<meta name="robots" content="index, follow">
+
+<link rel="preconnect" href="https://fonts.googleapis.com/">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;900&family=Roboto+Slab:wght@700;900&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "什麼是 GEO?中小企業為什麼需要它?",
+  "description": "GEO(生成式引擎優化)讓 ChatGPT、Perplexity 等 AI 直接引用你的內容作答。",
+  "author": {
+    "@type": "Person",
+    "name": "［在此填入作者真實姓名］"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "GEO Stack",
+    "url": "https://www.geostack.tw/"
+  },
+  "datePublished": "2026-07-12",
+  "dateModified": "2026-07-12",
+  "mainEntityOfPage": "https://www.geostack.tw/what-is-geo-vs-seo.html"
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "GEO 是什麼的縮寫?",
+      "acceptedAnswer": { "@type": "Answer", "text": "GEO 是 Generative Engine Optimization(生成式引擎優化),指優化內容讓 ChatGPT、Perplexity、Google AI Overview 等生成式 AI 在回答問題時直接引用。" }
+    },
+    {
+      "@type": "Question",
+      "name": "中小企業第一步該做什麼?",
+      "acceptedAnswer": { "@type": "Answer", "text": "先檢查 robots.txt 是否封鎖了 GPTBot、ClaudeBot、PerplexityBot,這是最常見也最容易修正的錯誤,一次設定就能讓 AI 爬蟲進得來。" }
+    }
+  ]
+}
+</script>
+
+<style>
+  :root{
+    --ink:#1C1B19; --slate:#38424B; --sandstone:#A8895E; --chalk:#EDE6D6;
+    --vein:#2F6F62; --paper:#FAF7F0; --line:rgba(28,27,25,0.14);
+    --mono:'IBM Plex Mono', monospace; --slab:'Roboto Slab', serif; --sans:'Inter', sans-serif;
+  }
+  *{box-sizing:border-box;}
+  body{ margin:0; font-family:var(--sans); color:var(--ink); background:var(--paper); line-height:1.7; }
+  a{ color:var(--vein); }
+  a:focus-visible{ outline:3px solid var(--vein); outline-offset:2px; }
+  header{ background:var(--ink); padding:18px 0; }
+  .wrap{ max-width:760px; margin:0 auto; padding:0 24px; }
+  .nav-wrap{ max-width:1120px; margin:0 auto; padding:0 24px; display:flex; justify-content:space-between; align-items:center; }
+  .logo{ font-family:var(--slab); font-weight:900; color:var(--paper); text-decoration:none; font-size:1.1rem; }
+  .logo span{ color:var(--sandstone); }
+  .back{ color:#C7C2B6; font-size:0.88rem; text-decoration:none; font-family:var(--mono); }
+
+  .eyebrow{
+    font-family:var(--mono); font-size:0.76rem; letter-spacing:0.1em; text-transform:uppercase;
+    color:var(--vein); margin-bottom:14px; display:flex; align-items:center; gap:8px;
+  }
+  .eyebrow::before{ content:""; width:18px; height:1px; background:var(--vein); }
+
+  article{ padding:64px 0 96px; }
+  h1{ font-family:var(--slab); font-size:clamp(1.7rem, 4vw, 2.5rem); line-height:1.25; margin:0 0 20px; }
+  .meta{ font-family:var(--mono); font-size:0.8rem; color:#8A8378; margin-bottom:36px; }
+
+  .direct-answer{
+    background:var(--chalk); border-left:4px solid var(--vein);
+    padding:20px 24px; border-radius:4px; font-size:1.08rem; font-weight:600;
+    margin-bottom:40px;
+  }
+
+  h2{ font-family:var(--slab); font-size:1.4rem; margin:44px 0 16px; }
+  p{ font-size:1.02rem; color:#2C2A27; margin:0 0 18px; }
+
+  .table-wrap{ overflow-x:auto; border:1px solid var(--line); border-radius:6px; margin:24px 0; }
+  table{ border-collapse:collapse; width:100%; min-width:520px; }
+  th,td{ text-align:left; padding:12px 16px; border-bottom:1px solid var(--line); font-size:0.94rem; }
+  thead th{ font-family:var(--mono); font-size:0.72rem; text-transform:uppercase; background:var(--ink); color:var(--paper); }
+  tbody tr:nth-child(even){ background:rgba(28,27,25,0.03); }
+
+  .faq-item{ border-bottom:1px solid var(--line); padding:20px 0; }
+  .faq-item summary{ cursor:pointer; font-weight:600; list-style:none; }
+  .faq-item summary::-webkit-details-marker{ display:none; }
+  .faq-item .answer{ margin-top:10px; color:#403C36; }
+
+  .internal-links{ background:#fff; border:1px solid var(--line); border-radius:6px; padding:22px 24px; margin-top:48px; }
+  .internal-links h3{ font-size:0.95rem; margin:0 0 10px; font-family:var(--sans); }
+  .internal-links ul{ margin:0; padding-left:1.1em; font-size:0.94rem; }
+
+  footer{ background:var(--ink); color:#8A9095; padding:28px 0; font-size:0.85rem; text-align:center; }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="nav-wrap">
+    <a href="index.html" class="logo">GEO<span>Stack</span></a>
+    <a href="index.html" class="back">← 回首頁</a>
+  </div>
+</header>
+
+<article>
+  <div class="wrap">
+    <div class="eyebrow">部落格 · GEO 基礎知識</div>
+    <h1>什麼是 GEO?中小企業為什麼需要它?</h1>
+    <div class="meta">發布於 2026-07-12 · 更新於 2026-07-12 · 每季複查更新</div>
+
+    <div class="direct-answer">
+      GEO(生成式引擎優化)是讓 ChatGPT、Perplexity 等 AI 在回答問題時直接引用你網站內容的技術,
+      核心做法是結構化資料、問答式內容與可驗證陳述。
+    </div>
+
+    <h2>GEO 和 SEO 差在哪裡?</h2>
+    <p>
+      SEO 優化的對象是搜尋引擎的排名演算法,目標是讓你的網頁出現在 Google 第一頁。
+      GEO 優化的對象是生成式 AI 的引用邏輯,目標是讓 AI 在整理答案時,把你的內容當作來源引用進去。
+      兩者的地基層技術重疊——SSL、速度、meta 標籤都是共同基礎——但 GEO 在上面多蓋了一層結構化資料。
+    </p>
+
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>面向</th><th>SEO</th><th>GEO</th></tr></thead>
+        <tbody>
+          <tr><td>成功指標</td><td>排名位置、點擊率</td><td>AI 回答中的引用次數</td></tr>
+          <tr><td>內容格式</td><td>長文、關鍵字密度</td><td>問答結構、表格、FAQ schema</td></tr>
+          <tr><td>爬蟲對象</td><td>Googlebot</td><td>GPTBot、ClaudeBot、PerplexityBot</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <h2>中小企業第一步該做什麼?</h2>
+    <p>
+      先檢查自己的 robots.txt。這是最常見、也最容易修正的錯誤——許多網站為了擋垃圾爬蟲,
+      連 AI 引用型爬蟲也一起封鎖。修正這一項,通常一天內就能生效,是投資報酬率最高的第一步。
+    </p>
+
+    <h2>常見問題</h2>
+    <details class="faq-item" open="">
+      <summary>GEO 是什麼的縮寫?</summary>
+      <div class="answer">Generative Engine Optimization(生成式引擎優化),指優化內容讓生成式 AI 在回答時直接引用。</div>
+    </details>
+    <details class="faq-item">
+      <summary>中小企業第一步該做什麼?</summary>
+      <div class="answer">先檢查 robots.txt 是否封鎖了 GPTBot、ClaudeBot、PerplexityBot,一次設定就能讓 AI 爬蟲進得來。</div>
+    </details>
+
+    <div class="internal-links">
+      <h3>延伸閱讀</h3>
+      <ul>
+        <li><a href="index.html#foundation">GEO Stack 地基層方法論</a></li>
+        <li><a href="index.html#cited">被引用層:結構化資料怎麼做</a></li>
+        <li><a href="index.html#contact">預約免費 GEO 健檢</a></li>
+      </ul>
+    </div>
+  </div>
+</article>
+
+<footer>© 2026 GEO Stack</footer>
+
+
+
+</body></html>

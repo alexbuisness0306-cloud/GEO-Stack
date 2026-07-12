@@ -1,0 +1,44 @@
+# GEO Stack — robots.txt
+# 原則:允許所有正規搜尋與 AI 引用爬蟲,只封鎖已知的垃圾/掃描型爬蟲。
+# 部署前請把 example.com 換成你的實際網域。
+
+User-agent: *
+Allow: /
+
+# ---- 傳統搜尋引擎(明確允許,避免被下方規則誤擋) ----
+User-agent: Googlebot
+Allow: /
+
+User-agent: Bingbot
+Allow: /
+
+# ---- AI 引用 / GEO 相關爬蟲(這是最容易被漏掉、也最容易被誤擋的一段) ----
+User-agent: GPTBot
+Allow: /
+
+User-agent: ChatGPT-User
+Allow: /
+
+User-agent: ClaudeBot
+Allow: /
+
+User-agent: anthropic-ai
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: Google-Extended
+Allow: /
+
+User-agent: Applebot-Extended
+Allow: /
+
+# ---- 明確封鎖的範例(依實際需求調整,不要用「封鎖全部非白名單」的寫法) ----
+# User-agent: SemrushBot
+# Disallow: /
+#
+# User-agent: AhrefsBot
+# Disallow: /
+
+Sitemap: https://www.geostack.tw/sitemap.xml
